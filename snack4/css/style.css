@@ -12,8 +12,12 @@ body {
     height: 100vh;
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
-    color: white;
+    color: #000000;
     background-color: #000000;
+    background-image: url("../img/sfondo.jpg");
+    background-position: center;
+    background-size: cover;
+    text-shadow: 1px 1px 3px #ffffff;
 }
 
 /* CONTAINER */
@@ -25,7 +29,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 30px;
     font-size: 80px;
-    color: #ffffff;
+    color: #000000;
 }
 
 #container button {
@@ -33,13 +37,14 @@ body {
     text-transform: uppercase;
     padding: 10px 15px;
     border-radius: 10px;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
     margin: 0 5px 30px 5px;
     font-family: 'Indie Flower', cursive;
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff;
-    background-color: unset;
+    color: #000000;
+    background-color: #ffffff;
+    box-shadow: inset 1px 1px 10px #000000;
     transition: transform .2s;
     cursor: pointer;
 }
