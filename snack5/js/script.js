@@ -9,6 +9,7 @@ function oddCalcolator (number) {
 var numberList = [];
 var userNumber;
 var numberOdd;
+var list = document.getElementById("list");
 
 // CHIEDI 6 VOLTE ALL'UTENTE UN NUMERO E SE E' DISPARI INSERISCILO NELLA LISTA
 for (i = 1; i <= 6; i++) {
@@ -27,4 +28,5 @@ for (i = 1; i <= 6; i++) {
     
 }
 
+list.innerHTML = numberList;
 console.log(numberList);
