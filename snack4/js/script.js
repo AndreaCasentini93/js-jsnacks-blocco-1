@@ -1,8 +1,4 @@
-/*
-Generatore di “nomi cognomi” casuali: scrivere una funzione che, partendo da una lista di nomi e una lista di cognomi, generi una coppia nome-cognome casuale, così da permettere al signor Gatsby di costruire una falsa lista di 10 invitati alla sua festa, da stampare in pagina, utilizzando il tag adatto alle liste.
-*/
-
-// FUNZIONE PER CALCOLARE UN NUOVO NOME PARTENDO DA DUE LISTE
+// FUNZIONE PER CALCOLARE UN NUOVO NOME COMPLETO PARTENDO DA DUE LISTE
 function nameSurnameCalcolator (name, surname) {
 
     var random;
@@ -20,19 +16,38 @@ function nameSurnameCalcolator (name, surname) {
 
 }
 
-// FUNZIONE PER CALCOLARE UN NUMERO RANDOM COMPRESO TRA MIN E MAX
+// FUNZIONE PER CALCOLARE UN NUMERO RANDOM COMPRESO TRA UN NUMERO MIN ED UN NUMERO MAX
 function randomNumber (min, max) {
 
     return Math.floor(Math.random() * (max - min + 1) + min);
 
 }
 
-// FUNZIONE DEL PULSANTE PER CALCOLARE UNA NUOVA (FALSA) LISTA
+// FUNZIONE DEL PULSANTE PER CALCOLARE UNA NUOVA LISTA
 function newList () {
 
-    for (i = 0; i < 10; i++) {
-        falseList.push(nameSurnameCalcolator (nameList, surnameList));
-        gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
+    if (test) {
+        for (i = 0; i < 10; i++) {
+            falseList.push(nameSurnameCalcolator (nameList, surnameList));
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
+        }
+        test = false;
+    } else {
+        gatsbyList.innerHTML = "";
+        for (i = 0; i < 10; i++) {
+            falseList.push(nameSurnameCalcolator (nameList, surnameList));
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
+        }
+    }
+
+}
+
+// FUNZIONE DEL PULSANTE DI RESET
+function reset () {
+
+    if (!test) {
+        gatsbyList.innerHTML = "";
+        test = true;
     }
 
 }
@@ -46,3 +61,5 @@ var nameList = ["Giuseppe", "Giovanni", "Antonio", "Filippo", "Mario", "Maria", 
 var surnameList = ["Rossi", "Ferrari", "Russo", "Bianchi", "Romano", "Gallo", "Costa", "Fontana", "Bruno", "Greco"];
 
 var falseList = [];
+
+var test = true;
