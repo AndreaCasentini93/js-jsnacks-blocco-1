@@ -6,17 +6,17 @@ function randomNumber (min, max) {
 }
 
 // FUNZIONE PER CALCOLARE UN NUOVO NOME COMPLETO PARTENDO DA DUE LISTE CON UN NUMERO DI ELEMENTI CHE VA DA MIN A MAX
-function nameSurnameCalcolator (name, surname, min, max) {
+function nameSurnameCalcolator (name, surname) {
 
     var random;
     var nameSurname;
 
     // ESTRAI DALL'ARRAY NAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA MIN E MAX
-    random = randomNumber (min, max);
+    random = randomNumber (0, name.length - 1);
     nameSurname = name[random] + " ";
 
     // ESTRAI DALL'ARRAY SURNAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA MIN E MAX E CONCATENALO CON L'ELEMENTO OTTENUTO PRIMA
-    random = randomNumber (min, max);
+    random = randomNumber (0, surname.length - 1);
     nameSurname += surname[random]
 
     return nameSurname;
@@ -29,9 +29,9 @@ function newList () {
     if (test) {
         for (i = 0; i < 10; i++) {
             // AGGIUNGI ALL'ARRAY VUOTO L'ELEMENTO OTTENUTO
-            falseList.push(nameSurnameCalcolator (nameList, surnameList, 0, 9));
+            falseList.push(nameSurnameCalcolator (nameList, surnameList));
             // STAMPA SU HTML LA LISTA PRESENTE NELL'ARRAY
-            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList, 0, 9) + "</li>";
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
         }
         //PULSANTE DISATTIVATO
         test = false;
@@ -40,9 +40,9 @@ function newList () {
         gatsbyList.innerHTML = "";
         for (i = 0; i < 10; i++) {
             // AGGIUNGI ALL'ARRAY VUOTO L'ELEMENTO OTTENUTO
-            falseList.push(nameSurnameCalcolator (nameList, surnameList, 0, 9));
+            falseList.push(nameSurnameCalcolator (nameList, surnameList));
             // STAMPA SU HTML LA LISTA PRESENTE NELL'ARRAY
-            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList, 0, 9) + "</li>";
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
         }
     }
 
