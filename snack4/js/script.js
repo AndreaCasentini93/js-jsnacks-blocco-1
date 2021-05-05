@@ -5,18 +5,18 @@ function randomNumber (min, max) {
 
 }
 
-// FUNZIONE PER CALCOLARE UN NUOVO NOME COMPLETO PARTENDO DA DUE LISTE COMPOSTE DA 10 ELEMENTI L'UNA
-function nameSurnameCalcolator (name, surname) {
+// FUNZIONE PER CALCOLARE UN NUOVO NOME COMPLETO PARTENDO DA DUE LISTE CON UN NUMERO DI ELEMENTI CHE VA DA MIN A MAX
+function nameSurnameCalcolator (name, surname, min, max) {
 
     var random;
     var nameSurname;
 
-    // ESTRAI DALL'ARRAY NAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA 0 E 9
-    random = randomNumber (0, 9);
+    // ESTRAI DALL'ARRAY NAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA MIN E MAX
+    random = randomNumber (min, max);
     nameSurname = name[random] + " ";
 
-    // ESTRAI DALL'ARRAY SURNAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA 0 E 9 E CONCATENALO CON L'ELEMENTO OTTENUTO PRIMA
-    random = randomNumber (0, 9);
+    // ESTRAI DALL'ARRAY SURNAME UN ELEMENTO DI NUMERAZIONE RANDOM COMPRESA TRA MIN E MAX E CONCATENALO CON L'ELEMENTO OTTENUTO PRIMA
+    random = randomNumber (min, max);
     nameSurname += surname[random]
 
     return nameSurname;
@@ -29,9 +29,9 @@ function newList () {
     if (test) {
         for (i = 0; i < 10; i++) {
             // AGGIUNGI ALL'ARRAY VUOTO L'ELEMENTO OTTENUTO
-            falseList.push(nameSurnameCalcolator (nameList, surnameList));
+            falseList.push(nameSurnameCalcolator (nameList, surnameList, 0, 9));
             // STAMPA SU HTML LA LISTA PRESENTE NELL'ARRAY
-            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList, 0, 9) + "</li>";
         }
         //PULSANTE DISATTIVATO
         test = false;
@@ -40,9 +40,9 @@ function newList () {
         gatsbyList.innerHTML = "";
         for (i = 0; i < 10; i++) {
             // AGGIUNGI ALL'ARRAY VUOTO L'ELEMENTO OTTENUTO
-            falseList.push(nameSurnameCalcolator (nameList, surnameList));
+            falseList.push(nameSurnameCalcolator (nameList, surnameList, 0, 9));
             // STAMPA SU HTML LA LISTA PRESENTE NELL'ARRAY
-            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList) + "</li>";
+            gatsbyList.innerHTML += "<li>" + nameSurnameCalcolator (nameList, surnameList, 0, 9) + "</li>";
         }
     }
 
